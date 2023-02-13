@@ -1,0 +1,40 @@
+.cal-box {
+    margin-top: 10px;
+    border-radius: 15px;
+    background-color: $dark0_soft;
+    color: $bright_yellow;
+}
+
+.cal-inner-box {
+    padding: 1.5em 1em;
+}
+
+.monthyear {
+    font-size: 1.75rem;
+    font-weight: bold;
+    margin: .5rem 0;
+}
+
+.day-names {
+    font-weight: 600;
+    padding: 0 1rem;
+    padding-top: 1rem;
+    color: $bright_green;
+    font-size: 1.5em;
+}
+
+.cal {
+    &.highlight {
+        padding: 5em;
+    }
+    padding: .8em .25em 0em;
+}
+
+calendar:selected {
+    padding-top: 1em;
+    color: $bright_red;
+}
+
+calendar:indeterminate {
+    color: $neutral_blue;
+}

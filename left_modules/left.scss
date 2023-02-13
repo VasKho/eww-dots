@@ -1,0 +1,40 @@
+.menu_btn {
+    background-color: $bg_color;
+    color: $neutral_purple;
+    font-size: 26px;
+    border-radius: 10px;
+    padding-left: 6px;
+    padding-right: 15px;
+}
+
+.workspaces {
+    border-radius: 10px;
+    background-color: $bg_color;
+    margin-left: 5px;
+}
+
+.ws_button {
+    background-color: $bg_color;
+    border-radius: 10px;
+    padding-top: 2px;
+    padding-left: 6px;
+    padding-right: 6px;
+    color: $text_color;
+}
+
+.ws_button_focused {
+    border-radius: 10px;
+    border-bottom: 2px solid;
+    padding-top: 2px;
+    padding-left: 6px;
+    padding-right: 6px;
+    color: $text_color;
+    background-color: $gray;
+    min-width: 25px;
+}
+
+.ws_button:hover {
+    background-color: $gray;
+    animation-name: hov_select;
+    animation-duration: 0.43s;
+}

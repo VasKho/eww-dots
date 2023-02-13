@@ -1,0 +1,91 @@
+;; Reveal variables
+(defvar cal-rev false)
+(defvar time-rev false)
+(defvar micro-rev true)
+
+;; Value variables
+(defvar backlight-value 0)
+(defvar volume-value 0)
+
+;; Style variables
+(defvar wifi-color "$font-col")
+(defvar volume-color "$font-col")
+(defvar cpu-animation "")
+(defvar memory-animation "")
+(defvar battery-animation "")
+
+;; Poll valiables
+(defpoll wifi-status :initial "./bin/wifi" :interval "2s" "./bin/wifi")
+(defpoll cpu :initial "./bin/cpu" :interval "10s" "./bin/cpu")
+(defpoll memory :initial "./bin/memory" :interval "10s" "./bin/memory")
+(defpoll battery :initial "./bin/battery" :interval "3s" "./bin/battery")
+(defpoll hour :initial "date +'%H'" :interval "1s" "date +'%H'")
+(defpoll minute :initial "date +'%M'" :interval "5s" "date +'%M'")
+(defpoll day :initial "date +'%A'" :interval "1h" "date +'%A'")
+(defpoll year :initial "date +'%Y'" :interval "1h" "date +'%Y'")
+(defpoll month :initial "date +'%B'" :interval "1h" "date +'%B'")
+(defpoll date :initial "date +'%d'" :interval "2h" "date +'%d'")
+(defpoll month-year :initial "date +'%B %Y'" :interval "24h" "date +'%B %Y'")
+
+(defwidget right []
+  (box :halign "end" :class "right_modules" :space-evenly false
+       (cpu)
+       (memory)
+       (battery)
+       (wifi)
+       (sound)
+       (micro)
+       (backlight)
+       (clock-module)))
+
+(defwidget cpu []
+  (button :style "${cpu-animation}" :class "button"
+	  :onclick "swaymsg exec \"\\$term -a=floating_shell htop\"" "﬙ ${cpu}%"))
+
+(defwidget memory []
+  (button :style "${memory-animation}" :class "button"
+	  :onclick "swaymsg exec \"\\$term -a=floating_shell htop\"" " ${memory}%"))
+
+(defwidget battery []
+  (label :style "${battery-animation}" :class "button" :text "${battery}"))
+
+(defwidget wifi []
+  (button :style "color: ${wifi-color};" :class "wifi"
+	  :onclick "swaymsg exec \"\\$term -a=floating_shell nmtui\"" "${wifi-status}"))
+
+(defwidget sound []
+  (eventbox
+   :style "color: ${volume-color};" :class "volume-box"
+   :onhover "./bin/audio"
+   :onscroll "./bin/audio {} 1"
+   (box :space-evenly false :orientation "h"
+	(label :class "button" :text "${volume-value}"))))
+
+(defwidget micro []
+  (revealer
+   :transition "slideleft"
+   :reveal micro-rev
+   :duration "0.43s"
+   (label :class "button" :text "")))
+
+(defwidget backlight []
+  (eventbox
+   :class "backlight-box"
+   :onhover "./bin/backlight"
+   :onscroll "./bin/backlight {} 2"
+   (box :space-evenly false :orientation "h"
+	(label :class "button" :text "${backlight-value}"))))
+
+(defwidget clock-module []
+  (eventbox
+   :class "date-time"
+   :onhover "${eww} update time-rev=true"
+   :onhoverlost "${eww} update time-rev=false"
+   :onclick {cal-rev ? "${eww} update cal-rev=false && ${eww} close calendar" : "${eww} open calendar && ${eww} update cal-rev=true"}
+   (box :space-evenly false :orientation "h"
+	(label :class "time-btn" :text "${hour}:${minute}")
+	(revealer
+	 :transition "slideleft"
+	 :reveal time-rev
+	 :duration "0.43s"
+	 (label :class "date-btn" :text "${day} ${date} ${month} ${year}")))))

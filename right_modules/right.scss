@@ -1,0 +1,49 @@
+.right_modules {
+    border-radius: 15px;
+    background-color: $bg_color;
+}
+
+.button {
+    border-radius: 15px;
+    padding: 7px 9px 7px 9px;
+    background-color: $bg_color;
+}
+
+.button:hover {
+    background-color: $gray;
+    animation-name: hov_select;
+    animation-duration: 0.43s;
+}
+
+.wifi {
+    border-radius: 15px;
+    padding: 7px 14px 7px 9px;
+    background-color: $bg_color;
+}
+
+.wifi:hover {
+    background-color: $gray;
+    animation-name: hov_select;
+    animation-duration: 0.43s;
+}
+
+.date-time {
+    border-radius: 15px;
+    background-color: $bg_color;
+}
+
+.date-time:hover {
+    background-color: $gray;
+    animation-name: hov_select;
+    animation-duration: 0.43s;
+}
+
+.time-btn {
+    border-radius: 15px;
+    padding: 7px 9px 7px 9px;
+}
+
+.date-btn {
+    border-radius: 15px;
+    padding: 7px 9px 7px 9px;
+}

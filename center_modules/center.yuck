@@ -1,0 +1,19 @@
+(defvar rev-mod false)
+(defvar rev-mus true)
+(deflisten modes "./bin/modes")
+
+(defwidget center []
+  (label :text ""))
+
+;;(defwidget center []
+  ;;(overlay   ;; (revealer
+   ;;  :reveal rev-mus
+   ;;   :transition "crossfade"
+   ;;    :duration "0.443s"
+   ;;     (label :class "music" :text "music"))
+   ;; (revealer
+   ;;  :reveal rev-mod
+   ;;   :transition "crossfade"
+   ;;    :duration "0.443s"
+   ;;     (label :class "modes" :text "  Record (r) + [Shift for ]"))
+   ;;))
