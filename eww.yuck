@@ -6,6 +6,7 @@
 (include "./right_modules/right.yuck")
 
 (include "./calendar/calendar.yuck")
+(include "./screenshot/screenshot.yuck")
 
 (defwindow bar
   :monitor 0

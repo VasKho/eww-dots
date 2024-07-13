@@ -1,0 +1,12 @@
+(defwindow screenshot
+  :monitor 0
+  :geometry (geometry :x "0px"
+		      :y "-33px"
+		      :width "42%"
+		      :anchor "top center")
+  :stacking "overlay"
+  :exclusive false
+  (screenshot-menu))
+
+(defwidget screenshot-menu []
+  (label :class "screenshotmenu" :text "󰹑 (o)utput, (s)creen, (f)ocused, (w)indow, (a)rea + Shift for "))
