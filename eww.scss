@@ -36,3 +36,9 @@ $font-col: #cfc9c2;
 @import "right_modules/right";
 
 @import "calendar/calendar";
+
+
+tooltip {
+    background-color: $dark1;
+    border-radius: 7px;
+}

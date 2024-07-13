@@ -1,30 +1,30 @@
 (defwindow calendar
   :monitor 0
-   :geometry (geometry :x "5px"
-			:y "-5px"
-			 :width "13%"
-			  :anchor "top right")
-    :stacking "fg"
-     :exclusive false
-      (revealer
-       :transition "crossfade"
-	:reveal cal-rev
-	 :duration "0.6s"
-	  (cal)))
+  :geometry (geometry :x "5px"
+		      :y "-5px"
+		      :width "13%"
+		      :anchor "top right")
+  :stacking "fg"
+  :exclusive false
+  (revealer
+   :transition "crossfade"
+   :reveal cal-rev
+   :duration "0.6s"
+   (cal)))
 
 (defwidget cal []
   (eventbox
    :onhoverlost "${eww} close calendar"
-    (box :class "cal-box" :orientation "v"
-	  (box :orientation "v" :class "cal-inner-box" :space-evenly false
-		(label :class "monthyear" :text "${month-year}")
-		(box :class "day-names" :orientation "h" :space-evenly true
-		      (label :text "Su")
-		      (label :text "Mo")
-		      (label :text "Tu")
-		      (label :text "We")
-		      (label :text "Th")
-		      (label :text "Fr")
-		      (label :text "Sa"))
-		(calendar :class "cal" :show-details false :show-heading false :show-day-names false
-			   :onclick "${eww} update month-year=\"$(date -d {2}-$(({1}+1))-{0} +'%B %Y')\"")))))
+   (box :class "cal-box" :orientation "v"
+	(box :orientation "v" :class "cal-inner-box" :space-evenly false
+	     (label :class "monthyear" :text "${month-year}")
+	     (box :class "day-names" :orientation "h" :space-evenly true
+		  (label :text "Su")
+		  (label :text "Mo")
+		  (label :text "Tu")
+		  (label :text "We")
+		  (label :text "Th")
+		  (label :text "Fr")
+		  (label :text "Sa"))
+	     (calendar :class "cal" :show-details false :show-heading false :show-day-names false
+		       :onclick "${eww} update month-year=\"$(date -d {2}-$(({1}+1))-{0} +'%B %Y')\"")))))

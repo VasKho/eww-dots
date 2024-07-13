@@ -1,0 +1,12 @@
+#!/bin/bash
+
+eww="eww -c $HOME/.config/eww/bar"
+
+wpctl set-mute @DEFAULT_SOURCE@ toggle
+state=$(wpctl get-volume @DEFAULT_SOURCE@ | grep -Eo 'MUTE')
+
+if [[ ${state} == "MUTE" ]]; then
+    ${eww} update micro-rev=false
+else
+    ${eww} update micro-rev=true
+fi

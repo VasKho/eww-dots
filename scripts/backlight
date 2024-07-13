@@ -1,0 +1,52 @@
+#!/bin/bash
+
+eww="eww -c ${HOME}/.config/eww/bar/"
+
+backlight() {
+    cur_value=$(brightnessctl g)
+    max_value=$(brightnessctl m)
+    value=$((100*$cur_value/$max_value))
+    new_value=""
+    if [ $# -eq 0 ]; then
+	new_value=${value}
+    elif [[ $1 == "down" ]]; then
+	if [ $value -le $((100-$2)) ]; then
+	    new_value=$((value+$2))
+	else
+	    new_value=100
+	fi
+    elif [[ $1 == "up" ]]; then
+	if [ $value -ge $2 ]; then
+	    new_value=$((value-$2))
+	else
+	    new_value=0
+	fi
+    fi
+    brightnessctl s ${new_value}% > /dev/null
+    echo ${new_value}
+}
+
+icon() {
+    icon=""
+    if ((70 < $1 && $1 <= 100)); then
+	icon="󰃠"
+    elif ((50 < $1 && $1 <= 70)); then
+	icon="󰃟"
+    elif ((40 < $1 && $1 <= 50)); then
+	icon="󰃞"
+    elif ((30 < $1 && $1 <= 40)); then
+	icon="󰃝"
+    elif ((20 < $1 && $1 <= 30)); then
+	icon="󰃜"
+    elif ((10 < $1 && $1 <= 20)); then
+	icon="󰃛"
+    elif ((0 <= $1 && $1 <= 10)); then
+	icon="󰃚"
+    fi
+    echo ${icon}
+}
+
+value=$(backlight $1 $2)
+icon=$(icon $value)
+
+${eww} update backlight-value="${icon} ${value}%"

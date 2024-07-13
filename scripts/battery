@@ -1,0 +1,56 @@
+#!/bin/bash
+
+eww="eww -c $HOME/.config/eww/bar/"
+
+battery() {
+    BAT=`ls /sys/class/power_supply | grep BAT | head -n 1`
+    cat /sys/class/power_supply/${BAT}/capacity
+}
+battery_stat() {
+    BAT=`ls /sys/class/power_supply | grep BAT | head -n 1`
+    cat /sys/class/power_supply/${BAT}/status
+}
+
+value=$(battery)
+status=$(battery_stat)
+output=""
+animation_name=""
+
+if [ ${status} == "Discharging" ]; then
+    if ((80 < ${value} && ${value} <= 100)); then
+	output="󰁹 ${value}%"
+    elif ((60 < ${value} && ${value} <= 80)); then
+	output="󰁿 ${value}%"
+    elif ((40 < ${value} && ${value} <= 60)); then
+	output="󰁽 ${value}%"
+    elif ((20 < ${value} && ${value} <= 40)); then
+	output="󰁼 ${value}%"
+    elif ((10 < ${value} && ${value} <= 20)); then
+	output="󰁻 ${value}%"
+    elif ((0 <= ${value} && ${value} <= 10)); then
+	output="󰁺 ${value}%"
+    fi
+else
+    if ((80 < ${value} && ${value} <= 100)); then
+	output="󰂅 ${value}%"
+    elif ((60 < ${value} && ${value} <= 80)); then
+	output="󰂉 ${value}%"
+    elif ((40 < ${value} && ${value} <= 60)); then
+	output="󰂈 ${value}%"
+    elif ((20 < ${value} && ${value} <= 40)); then
+	output="󰂇 ${value}%"
+    elif ((10 < ${value} && ${value} <= 20)); then
+	output="󰂆 ${value}%"
+    elif ((0 <= ${value} && ${value} <= 10)); then
+	output="󰢜 ${value}%"
+    fi
+fi
+
+if (( ${value} <= 10 )); then
+    animation_name="blink-critical"
+elif (( ${value} <= 30 )); then
+    animation_name="blink-warning"
+fi
+
+${eww} update battery-animation=${animation_name}
+echo ${output}

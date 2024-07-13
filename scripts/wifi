@@ -1,0 +1,19 @@
+#!/bin/bash
+
+eww="eww -c $HOME/.config/eww/bar/"
+
+status=$(nmcli dev status | grep -E "wifi" -m 1 | awk '{print ($3)}')
+ssid=$(nmcli dev status | grep -E "wifi" -m 1 | awk '{print ($4)}')
+
+if [[ ${status} == "connected" ]]; then
+    icon="󰤨"
+    text=${ssid}
+    col='$font-col'
+else
+    icon="󰤮"
+    text=""
+    col="#f26435"
+fi
+
+${eww} update wifi-color=${col}
+echo ${icon}

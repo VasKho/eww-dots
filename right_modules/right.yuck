@@ -15,10 +15,10 @@
 (defvar battery-animation "")
 
 ;; Poll valiables
-(defpoll wifi-status :initial "./bin/wifi" :interval "2s" "./bin/wifi")
-(defpoll cpu :initial "./bin/cpu" :interval "10s" "./bin/cpu")
-(defpoll memory :initial "./bin/memory" :interval "10s" "./bin/memory")
-(defpoll battery :initial "./bin/battery" :interval "3s" "./bin/battery")
+(defpoll wifi-status :initial "./scripts/wifi" :interval "2s" "./scripts/wifi")
+(defpoll cpu :initial "./scripts/cpu" :interval "10s" "./scripts/cpu")
+(defpoll memory :initial "./scripts/memory" :interval "10s" "./scripts/memory")
+(defpoll battery :initial "./scripts/battery" :interval "3s" "./scripts/battery")
 (defpoll hour :initial "date +'%H'" :interval "1s" "date +'%H'")
 (defpoll minute :initial "date +'%M'" :interval "5s" "date +'%M'")
 (defpoll day :initial "date +'%A'" :interval "1h" "date +'%A'")
@@ -36,28 +36,29 @@
        (sound)
        (micro)
        (backlight)
+       (tray)
        (clock-module)))
 
 (defwidget cpu []
-  (button :style "${cpu-animation}" :class "button"
-	  :onclick "swaymsg exec \"\\$term -a=floating_shell htop\"" "﬙ ${cpu}%"))
+  (button :style "${cpu-animation}" :class "button" :tooltip "SHREK"
+	  :onclick "swaymsg exec '$term -a \"btop\" -e btop -p 0'" "󰘚 ${cpu}%"))
 
 (defwidget memory []
   (button :style "${memory-animation}" :class "button"
-	  :onclick "swaymsg exec \"\\$term -a=floating_shell htop\"" " ${memory}%"))
+	  :onclick "swaymsg exec '$term -a \"btop\" -e btop -p 0'" " ${memory}%"))
 
 (defwidget battery []
   (label :style "${battery-animation}" :class "button" :text "${battery}"))
 
 (defwidget wifi []
   (button :style "color: ${wifi-color};" :class "wifi"
-	  :onclick "swaymsg exec \"\\$term -a=floating_shell nmtui\"" "${wifi-status}"))
+	  :onclick "swaymsg exec '$term -a \"nmtui\" -e nmtui'" "${wifi-status}"))
 
 (defwidget sound []
   (eventbox
    :style "color: ${volume-color};" :class "volume-box"
-   :onhover "./bin/audio"
-   :onscroll "./bin/audio {} 1"
+   :onhover "./scripts/audio"
+   :onscroll "./scripts/audio {} 1"
    (box :space-evenly false :orientation "h"
 	(label :class "button" :text "${volume-value}"))))
 
@@ -71,10 +72,17 @@
 (defwidget backlight []
   (eventbox
    :class "backlight-box"
-   :onhover "./bin/backlight"
-   :onscroll "./bin/backlight {} 2"
+   :onhover "./scripts/backlight"
+   :onscroll "./scripts/backlight {} 2"
    (box :space-evenly false :orientation "h"
 	(label :class "button" :text "${backlight-value}"))))
+
+(defwidget tray []
+  (systray
+   :class "tray"
+   :spacing "10"
+   :orientation "h"
+   :icon-size "22"))
 
 (defwidget clock-module []
   (eventbox

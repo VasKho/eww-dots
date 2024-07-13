@@ -1,9 +1,31 @@
+#include <jansson.h>
+#include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
-#include <jansson.h>
+#include <sys/wait.h>
+#include <unistd.h>
+
 #include "sway-ipc.h"
-#include "eww_utils.h"
+
+
+#ifndef EWW_CONFIG_DIRECTORY
+#define EWW_CONFIG_DIRECTORY "./"
+#endif
+
+
+void eww_update_variable(char* name, char* new_value) {
+  char* name_value = calloc(strlen(name)+strlen(new_value)+2, sizeof(char));
+  strcat(name_value, name);
+  strcat(name_value, "=");
+  strcat(name_value, new_value);
+  int pid = fork(), status;
+  if (pid == 0) {
+    execlp("eww", "eww", "-c", EWW_CONFIG_DIRECTORY, "update", name_value, NULL);
+  } else {
+    waitpid(pid, &status, 0);
+    free(name_value);
+  }
+}
 
 void concatenate(char** dest, char* src) {
   *dest = realloc(*dest, strlen(*dest)+strlen(src)+1);
@@ -46,7 +68,6 @@ void get_ws_info(ipc_response* resp) {
   free(num_buff);
   pclose(pipe);
   json_decref(ws_info);
-  /* printf("%s\n", output); */
   eww_update_variable("workspace", output);
   free(output);
 }

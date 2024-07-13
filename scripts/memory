@@ -1,0 +1,15 @@
+#!/bin/bash
+
+eww="eww -c $HOME/.config/eww/bar/"
+
+value=$(printf "%.0f\n" $(free -m | grep Mem | awk '{print ($3/$2)*100}'))
+animation_name="${hov_select}"
+
+if (( ${value} >= 90 )); then
+    animation_name="blink-critical"
+elif (( ${value} >= 60 )); then
+    animation_name="blink-warning"
+fi
+
+${eww} update memory-animation=${animation_name}
+echo ${value}

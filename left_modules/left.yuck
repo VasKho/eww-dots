@@ -2,8 +2,8 @@
 
 (defwidget left []
   (box :orientation "h" :space-evenly false :hailgn "start"
-	(button :class "menu_btn" :onclick "swaymsg exec \\$menu" "")
-	(workspaces)))
+       (button :class "menu_btn" :onclick "swaymsg exec \\$menu" "")
+       (workspaces)))
 
 (defwidget workspaces []
   (literal :content workspace))
