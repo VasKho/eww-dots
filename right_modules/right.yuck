@@ -40,15 +40,15 @@
        (clock-module)))
 
 (defwidget cpu []
-  (button :style "${cpu-animation}" :class "button" :tooltip "SHREK"
+  (button :style "animation-name: ${cpu-animation}" :class "button" :tooltip "SHREK"
 	  :onclick "swaymsg exec '$term -a \"btop\" -e btop -p 0'" "󰘚 ${cpu}%"))
 
 (defwidget memory []
-  (button :style "${memory-animation}" :class "button"
+  (button :style "animation-name: ${memory-animation}" :class "button"
 	  :onclick "swaymsg exec '$term -a \"btop\" -e btop -p 0'" " ${memory}%"))
 
 (defwidget battery []
-  (label :style "${battery-animation}" :class "button" :text "${battery}"))
+  (label :style "animation-name: ${battery-animation}" :class "button" :text "${battery}"))
 
 (defwidget wifi []
   (button :style "color: ${wifi-color};" :class "wifi"

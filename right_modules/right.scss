@@ -7,6 +7,9 @@
     border-radius: 15px;
     padding: 7px 9px 7px 9px;
     background-color: $bg_color;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
 }
 
 .button:hover {
