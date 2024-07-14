@@ -1,16 +1,10 @@
 (defwindow calendar
   :monitor 0
-  :geometry (geometry :x "5px"
-		      :y "-5px"
-		      :width "13%"
-		      :anchor "top right")
+  :geometry
+  (geometry :x "0.25%" :y "-0.5%" :width "13%" :anchor "top right")
   :stacking "fg"
   :exclusive false
-  (revealer
-   :transition "crossfade"
-   :reveal cal-rev
-   :duration "0.6s"
-   (cal)))
+  (revealer :transition "crossfade" :reveal cal-rev :duration "0.6s" (cal)))
 
 (defwidget cal []
   (eventbox

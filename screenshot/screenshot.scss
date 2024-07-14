@@ -1,10 +1,9 @@
 .screenshotmenu {
-    border: 1px solid;
-    border-radius: 15px;
+    border: .1rem solid;
+    border-radius: 1rem;
     border-color: $neutral_purple;
-    font-size: 20px;
-    font-family: "Hack Nerd Font";
+    font: 1.4rem "Hack Nerd Font";
     background-color: $bg_color;
     color: $text_color;
-    padding: 2px 0px 2px;
+    padding: .13rem;
 }

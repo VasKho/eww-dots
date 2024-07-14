@@ -8,14 +8,6 @@ $font-col: #cfc9c2;
     all: unset;
 }
 
-.bar {
-    border-radius: 15px;
-    font-size: 14px;
-    font-family: "Hack Nerd Font";
-    font-weight: bold;
-    background-color: $transp_dark;
-}
-
 @keyframes blink-warning {
     70% {}
     to { color: $bright_orange; }
@@ -31,16 +23,12 @@ $font-col: #cfc9c2;
     to {background-color: $gray;}
 }
 
-@import "bar/left_modules/left";
-@import "bar/center_modules/center";
-@import "bar/right_modules/right";
-
+@import "bar/bar";
 @import "calendar/calendar";
 @import "screenshot/screenshot";
 @import "powermenu/powermenu";
 
-
 tooltip {
     background-color: $dark1;
-    border-radius: 7px;
+    border-radius: .5rem;
 }

@@ -1,0 +1,9 @@
+@import "bar/left_modules/left";
+@import "bar/center_modules/center";
+@import "bar/right_modules/right";
+
+.bar {
+    font: bold 1em "Hack Nerd Font";
+    border-radius: 1rem;
+    background-color: $transp_dark;
+}

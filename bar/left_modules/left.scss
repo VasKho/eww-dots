@@ -1,36 +1,36 @@
 .menu_btn {
+    font-size: 1.8em;
     background-color: $bg_color;
     color: $neutral_purple;
-    font-size: 26px;
-    border-radius: 10px;
-    padding-left: 6px;
-    padding-right: 15px;
+    border-radius: 1rem;
+    padding-left: .7rem;
+    padding-right: 1.4rem;
 }
 
 .workspaces {
-    border-radius: 10px;
+    border-radius: .7rem;
     background-color: $bg_color;
-    margin-left: 5px;
+    margin-left: .2rem;
 }
 
 .ws_button {
     background-color: $bg_color;
-    border-radius: 10px;
-    padding-top: 2px;
-    padding-left: 6px;
-    padding-right: 6px;
+    border-radius: .7rem;
+    padding-top: .1rem;
+    padding-left: .4rem;
+    padding-right: .4rem;
     color: $text_color;
 }
 
 .ws_button_focused {
-    border-radius: 10px;
-    border-bottom: 2px solid;
-    padding-top: 2px;
-    padding-left: 6px;
-    padding-right: 6px;
+    border-radius: .7rem;
+    border-bottom: .15rem solid;
+    padding-top: .1rem;
+    padding-left: .4rem;
+    padding-right: .4rem;
     color: $text_color;
     background-color: $gray;
-    min-width: 25px;
+    min-width: 1.6rem;
 }
 
 .ws_button:hover {

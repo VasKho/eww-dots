@@ -1,9 +1,7 @@
 (defwindow screenshot
   :monitor 0
-  :geometry (geometry :x "0px"
-		      :y "-33px"
-		      :width "42%"
-		      :anchor "top center")
+  :geometry
+  (geometry :x "0px" :y "-3%" :width "42%" :anchor "top center")
   :stacking "overlay"
   :exclusive false
   (screenshot-menu))

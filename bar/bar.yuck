@@ -5,7 +5,7 @@
 (defwindow bar
   :monitor 0
   :geometry
-  (geometry :x "1%" :y "0px" :width "99.5%" :height "3.2%" :anchor "top center")
+  (geometry :x "0.25%" :y "0px" :width "99.5%" :height "3.2%" :anchor "top center")
   :stacking "fg"
   :exclusive true
   (centerbox :orientation "h" :class "bar" (left) (center) (right)))

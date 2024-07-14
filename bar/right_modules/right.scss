@@ -1,11 +1,11 @@
 .right_modules {
-    border-radius: 15px;
+    border-radius: 1rem;
     background-color: $bg_color;
 }
 
 .button {
-    border-radius: 15px;
-    padding: 7px 9px 7px 9px;
+    border-radius: 1rem;
+    padding: .5rem;
     background-color: $bg_color;
 }
 
@@ -32,15 +32,8 @@
 }
 
 .wifi {
-    border-radius: 15px;
-    padding: 7px 14px 7px 9px;
-    background-color: $bg_color;
-}
-
-.wifi:hover {
-    background-color: $gray;
-    animation-name: hov_select;
-    animation-duration: 0.43s;
+    @extend .button;
+    padding-right: .9rem;
 }
 
 .tray menu {
@@ -69,7 +62,7 @@
 }
 
 .date-time {
-    border-radius: 15px;
+    border-radius: 1rem;
     background-color: $bg_color;
 }
 
@@ -80,11 +73,11 @@
 }
 
 .time-btn {
-    border-radius: 15px;
-    padding: 7px 9px 7px 9px;
+    border-radius: 1rem;
+    padding: .5rem;
 }
 
 .date-btn {
-    border-radius: 15px;
-    padding: 7px 9px 7px 9px;
+    border-radius: 1rem;
+    padding: .5rem .5rem .5rem 0;
 }
