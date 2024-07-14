@@ -7,23 +7,23 @@ backlight() {
     max_value=$(brightnessctl m)
     value=$((100*$cur_value/$max_value))
     new_value=""
-    if [[ $1 == "down" ]]; then
+    if [[ $# -eq 0 ]]; then
+	new_value="${value}"
+    elif [[ $1 == "down" ]]; then
 	if [ $value -le $((100-$2)) ]; then
 	    new_value=$((value+$2))
 	else
 	    new_value=100
 	fi
-	brightnessctl s ${new_value}% > /dev/null
-	echo ${new_value}
     elif [[ $1 == "up" ]]; then
 	if [ $value -ge $2 ]; then
 	    new_value=$((value-$2))
 	else
 	    new_value=0
 	fi
-	brightnessctl s ${new_value}% > /dev/null
-	echo ${new_value}
     fi
+    brightnessctl s ${new_value}% > /dev/null
+    echo ${new_value}
 }
 
 icon() {
