@@ -1,0 +1,11 @@
+(include "./bar/left_modules/left.yuck")
+(include "./bar/center_modules/center.yuck")
+(include "./bar/right_modules/right.yuck")
+
+(defwindow bar
+  :monitor 0
+  :geometry
+  (geometry :x "1%" :y "0px" :width "99.5%" :height "3.2%" :anchor "top center")
+  :stacking "fg"
+  :exclusive true
+  (centerbox :orientation "h" :class "bar" (left) (center) (right)))
