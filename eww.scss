@@ -31,9 +31,9 @@ $font-col: #cfc9c2;
     to {background-color: $gray;}
 }
 
-@import "left_modules/left";
-@import "center_modules/center";
-@import "right_modules/right";
+@import "bar/left_modules/left";
+@import "bar/center_modules/center";
+@import "bar/right_modules/right";
 
 @import "calendar/calendar";
 @import "screenshot/screenshot";

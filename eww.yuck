@@ -1,9 +1,9 @@
 ;; Defines
 (defvar eww "eww -c $HOME/.config/eww/bar")
 
-(include "./left_modules/left.yuck")
-(include "./center_modules/center.yuck")
-(include "./right_modules/right.yuck")
+(include "./bar/left_modules/left.yuck")
+(include "./bar/center_modules/center.yuck")
+(include "./bar/right_modules/right.yuck")
 
 (include "./calendar/calendar.yuck")
 (include "./screenshot/screenshot.yuck")
