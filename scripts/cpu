@@ -44,10 +44,10 @@ get_cpu() {
 value=$(get_cpu)
 
 if (( ${value} >= 90 )); then
-    animation_name="blink-critical"
+    class="button-critical"
 elif (( ${value} >= 60 )); then
-    animation_name="blink-warning"
+    class="button-warning"
 fi
 
-${eww} update cpu-animation=${animation_name}
+${eww} update cpu-animation=${class}
 echo ${value}

@@ -8,8 +8,8 @@
 (defvar volume-value 0)
 
 ;; Style variables
-(defvar wifi-color "$font-col")
-(defvar volume-color "$font-col")
+(defvar wifi-color "")
+(defvar volume-color "")
 (defvar cpu-animation "")
 (defvar memory-animation "")
 (defvar battery-animation "")
@@ -40,23 +40,24 @@
        (clock-module)))
 
 (defwidget cpu []
-  (button :style "animation-name: ${cpu-animation}" :class "button" :tooltip "SHREK"
+  (button :class { cpu-animation != "" ? "${cpu-animation}" : "button" }  :tooltip "SHREK"
 	  :onclick "swaymsg exec '$term -a \"btop\" -e btop -p 0'" "󰘚 ${cpu}%"))
 
 (defwidget memory []
-  (button :style "animation-name: ${memory-animation}" :class "button"
+  (button :class { memory-animation != "" ? "${memory-animation}" : "button" }
 	  :onclick "swaymsg exec '$term -a \"btop\" -e btop -p 0'" " ${memory}%"))
 
 (defwidget battery []
-  (label :style "animation-name: ${battery-animation}" :class "button" :text "${battery}"))
+  (label :class { battery-animation != "" ? "${battery-animation}" : "button" }
+	 :text "${battery}"))
 
 (defwidget wifi []
-  (button :style "color: ${wifi-color};" :class "wifi"
+  (button :style { wifi-color != "" ? "color: ${wifi-color}" : "" } :class "wifi"
 	  :onclick "swaymsg exec '$term -a \"nmtui\" -e nmtui'" "${wifi-status}"))
 
 (defwidget sound []
   (eventbox
-   :style "color: ${volume-color};" :class "volume-box"
+   :style { volume-color != "" ? "color: ${volume-color}" : "" } :class "volume-box"
    :onhover "./scripts/audio"
    :onscroll "./scripts/audio {} 1"
    (box :space-evenly false :orientation "h"

@@ -8,7 +8,7 @@ ssid=$(nmcli dev status | grep -E "wifi" -m 1 | awk '{print ($4)}')
 if [[ ${status} == "connected" ]]; then
     icon="󰤨"
     text=${ssid}
-    col='$font-col'
+    col=""
 else
     icon="󰤮"
     text=""

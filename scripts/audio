@@ -54,5 +54,5 @@ icon=$(icon $value)
 
 if [[ -z ${icon} ]]; then exit 0; fi
 
-${eww} update volume-color='$font-col'
+${eww} update volume-color=''
 ${eww} update volume-value="${icon}  ${value}%"

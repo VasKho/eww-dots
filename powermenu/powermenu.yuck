@@ -1,0 +1,20 @@
+(defwindow powermenu
+  :monitor 0
+  :geometry (geometry :x "0px"
+		      :y "-33px"
+		      :height "40%"
+		      :width "42%"
+		      :anchor "center")
+  :stacking "overlay"
+  :exclusive false
+  (power-menu))
+
+(defwidget power-menu []
+  (box :class "powermenu-box" :orientation "h"
+       (box :class "powermenu-image")
+       (box :class "powermenu-cmd" :orientation "v"
+	    (label :xalign 0.3 :text  "󰍁 (l)ock")
+	    (label :xalign 0.5 :text "󰽥 s(u)spend")
+	    (label :xalign 0.32 :text " (e)xit")
+	    (label :xalign 0.42 :text "󰜉 (r)eboot")
+	    (label :xalign 0.63 :text "󰐥 (s)hutdown"))))

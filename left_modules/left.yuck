@@ -1,4 +1,4 @@
-(deflisten workspace "./bin/workspaces")
+(defvar workspace "")
 
 (defwidget left []
   (box :orientation "h" :space-evenly false :hailgn "start"

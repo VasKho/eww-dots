@@ -3,13 +3,13 @@
 eww="eww -c $HOME/.config/eww/bar/"
 
 value=$(printf "%.0f\n" $(free -m | grep Mem | awk '{print ($3/$2)*100}'))
-animation_name="${hov_select}"
+class=""
 
 if (( ${value} >= 90 )); then
-    animation_name="blink-critical"
+    class="button-critical"
 elif (( ${value} >= 60 )); then
-    animation_name="blink-warning"
+    class="button-warning"
 fi
 
-${eww} update memory-animation=${animation_name}
+${eww} update memory-animation=${class}
 echo ${value}

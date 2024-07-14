@@ -7,15 +7,28 @@
     border-radius: 15px;
     padding: 7px 9px 7px 9px;
     background-color: $bg_color;
-    animation-duration: 2s;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
 }
 
 .button:hover {
     background-color: $gray;
     animation-name: hov_select;
     animation-duration: 0.43s;
+}
+
+.button-warning {
+    @extend .button;
+    animation-name: blink-warning;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+.button-critical {
+    @extend .button;
+    animation-name: blink-critical;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
 }
 
 .wifi {

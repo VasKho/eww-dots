@@ -14,7 +14,7 @@ battery_stat() {
 value=$(battery)
 status=$(battery_stat)
 output=""
-animation_name=""
+class=""
 
 if [ ${status} == "Discharging" ]; then
     if ((80 < ${value} && ${value} <= 100)); then
@@ -47,10 +47,10 @@ else
 fi
 
 if (( ${value} <= 10 )); then
-    animation_name="blink-critical"
+    class="button-critical"
 elif (( ${value} <= 30 )); then
-    animation_name="blink-warning"
+    class="button-warning"
 fi
 
-${eww} update battery-animation=${animation_name}
+${eww} update battery-animation=${class}
 echo ${output}

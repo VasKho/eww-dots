@@ -1,0 +1,19 @@
+.powermenu-box {
+    border: 2px solid;
+    border-radius: 30px;
+    border-color: $neutral_purple;
+    font-size: 40px;
+    font-family: "Hack Nerd Font";
+    background-color: $bg_color;
+    color: $text_color;
+    padding: 20px;
+}
+
+.powermenu-image {
+    border-radius: 100%;
+    background-image: url("/home/vaskho/.config/wallpapers/powermenu.jpg");
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    border: 2px solid;
+    border-color: $neutral_purple;
+}
