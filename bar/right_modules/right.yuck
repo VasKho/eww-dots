@@ -73,7 +73,6 @@
 (defwidget backlight []
   (eventbox
    :class "backlight-box"
-   :onhover "./scripts/backlight"
    :onscroll "./scripts/backlight {} 2"
    (box :space-evenly false :orientation "h"
 	(label :class "button" :text "${backlight-value}"))))
