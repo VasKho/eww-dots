@@ -1,5 +1,5 @@
 ;; Defines
-(defvar eww "eww -c $HOME/.config/eww/bar")
+(defvar eww "eww -c EWW_INSTALL_DIR")
 
 (include "./bar/left_modules/left.yuck")
 (include "./bar/center_modules/center.yuck")
@@ -11,11 +11,8 @@
 
 (defwindow bar
   :monitor 0
-  :geometry (geometry :x "5px"
-		      :y "0px"
-		      :width "99.5%"
-		      :height "35px"
-		      :anchor "top center")
+  :geometry
+  (geometry :x "5px" :y "0px" :width "99.5%" :height "35px" :anchor "top center")
   :stacking "fg"
   :exclusive true
   (centerbox :orientation "h" :class "bar" (left) (center) (right)))

@@ -40,7 +40,7 @@
        (clock-module)))
 
 (defwidget cpu []
-  (button :class { cpu-animation != "" ? "${cpu-animation}" : "button" }  :tooltip "SHREK"
+  (button :class { cpu-animation != "" ? "${cpu-animation}" : "button" } :tooltip "SHREK"
 	  :onclick "swaymsg exec '$term -a \"btop\" -e btop -p 0'" "󰘚 ${cpu}%"))
 
 (defwidget memory []

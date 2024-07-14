@@ -1,6 +1,6 @@
 #!/bin/bash
 
-eww="eww -c $HOME/.config/eww/bar/"
+eww="eww -c EWW_INSTALL_DIR"
 
 ## Files and Data
 PREV_TOTAL=0

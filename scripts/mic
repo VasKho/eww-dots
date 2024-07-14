@@ -1,6 +1,6 @@
 #!/bin/bash
 
-eww="eww -c $HOME/.config/eww/bar"
+eww="eww -c EWW_INSTALL_DIR"
 
 wpctl set-mute @DEFAULT_SOURCE@ toggle
 state=$(wpctl get-volume @DEFAULT_SOURCE@ | grep -Eo 'MUTE')

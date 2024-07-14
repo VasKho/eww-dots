@@ -1,6 +1,0 @@
-#!/bin/bash
-
-./bin/workspaces
-./scripts/audio
-./scripts/backlight
-./scripts/mic
