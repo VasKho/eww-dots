@@ -1,16 +1,16 @@
 .right_modules {
     border-radius: 1rem;
-    background-color: $bg_color;
+    background-color: $dark_bg_color;
 }
 
 .button {
     border-radius: 1rem;
     padding: .5rem;
-    background-color: $bg_color;
+    background-color: $dark_bg_color;
 }
 
 .button:hover {
-    background-color: $gray;
+    background-color: $theme_selected_bg_color;
     animation-name: hov_select;
     animation-duration: 0.43s;
 }
@@ -39,7 +39,7 @@
 .tray menu {
     border-radius: .7rem;
     padding: .5rem 0;
-    background-color: $dark1;
+    background-color: $dark_bg_color;
 
     >menuitem {
 	padding: 0px .5rem;
@@ -47,8 +47,8 @@
 	    color: gray;
 	}
 	&:hover {
-	    background-color: $light0_hard;
-	    color: $dark1;
+	    background-color: $theme_selected_bg_color;
+	    color: $theme_selected_fg_color;
 	}
     }
 
@@ -63,11 +63,11 @@
 
 .date-time {
     border-radius: 1rem;
-    background-color: $bg_color;
+    background-color: $dark_bg_color;
 }
 
 .date-time:hover {
-    background-color: $gray;
+    background-color: $theme_selected_bg_color;
     animation-name: hov_select;
     animation-duration: 0.43s;
 }

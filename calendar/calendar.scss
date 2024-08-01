@@ -1,8 +1,8 @@
 .cal-box {
     margin-top: 0.75rem;
     border-radius: 1rem;
-    background-color: $dark0_soft;
-    color: $bright_yellow;
+    background-color: $dark_bg_color;
+    color: $theme_text_color;
 }
 
 .cal-inner-box {
@@ -13,13 +13,14 @@
     font-size: 1.75rem;
     font-weight: bold;
     margin: .5rem 0;
+    color: $wm_border_focused;
 }
 
 .day-names {
     font-weight: 600;
     padding: 0 1rem;
     padding-top: 1rem;
-    color: $bright_green;
+    color: $dark_fg_color;
     font-size: 1.5em;
 }
 
@@ -32,9 +33,9 @@
 
 calendar:selected {
     padding-top: 1em;
-    color: $bright_red;
+    color: $error_color;
 }
 
 calendar:indeterminate {
-    color: $neutral_blue;
+    color: $info_bg_color;
 }

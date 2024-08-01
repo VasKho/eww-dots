@@ -1,26 +1,22 @@
 @import "colors";
 
-$simple-back: #0f0f17;
-$hover-back: #414868;
-$font-col: #cfc9c2;
-
 * {
     all: unset;
 }
 
 @keyframes blink-warning {
     70% {}
-    to { color: $bright_orange; }
+    to { color: $warning_color; }
 }
 
 @keyframes blink-critical {
     70% {}
-    to { color: $bright_red; }
+    to { color: $error_color; }
 }
 
 @keyframes hov_select {
-    from {background-color: $bg_color;}
-    to {background-color: $gray;}
+    from {background-color: $dark_bg_color;}
+    to {background-color: $theme_selected_bg_color;}
 }
 
 @import "bar/bar";
@@ -29,6 +25,7 @@ $font-col: #cfc9c2;
 @import "powermenu/powermenu";
 
 tooltip {
-    background-color: $dark1;
+    background-color: $theme_tooltip_bg_color;
     border-radius: .5rem;
+    color: $theme_tooltip_fg_color;
 }
