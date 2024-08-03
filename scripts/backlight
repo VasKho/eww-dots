@@ -1,6 +1,6 @@
 #!/bin/bash
 
-eww="eww -c EWW_INSTALL_DIR"
+eww="eww -c ${EWW_INSTALL_DIR}"
 
 backlight() {
     cur_value=$(brightnessctl g)

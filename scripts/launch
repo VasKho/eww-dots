@@ -2,7 +2,7 @@
 
 CONFIG_ROOT=$(cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && cd .. && pwd)
 
-eww="eww -c EWW_INSTALL_DIR"
+eww="eww -c ${EWW_INSTALL_DIR}"
 
 if [[ "${1}" == "start" ]]; then
     ${eww} daemon
